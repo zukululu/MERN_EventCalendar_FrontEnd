@@ -5,4 +5,35 @@
     margin: 0 auto;
     max-width: 55%;
     padding: 15px 0;
+
+    .form {
+        padding: 0;
+    }
+
+    .form_cover {
+        font-size: 18px;
+        width: 15%;
+    }
+
+    .form_description {
+        font-size: 18px;
+        height: 150px;
+        margin: 0 15px;
+        width: 60%;
+    }
+
+    .form_location {
+        font-size: 18px;
+        width: 50%;
+    }
+
+    .form_title {
+        font-size: 18px;
+        width: 50%;
+    }
+}
+
+label {
+    font-size: 18px;
+    padding: 0 15px;
 }

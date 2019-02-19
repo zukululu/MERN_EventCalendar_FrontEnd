@@ -7,7 +7,7 @@ class Header extends Component {
     render() {
         let navLinks = []
         if (this.props.isLoggedIn) {
-            navLinks.push(<Link key={2} to='/logout' className="navLink">Log Out</Link>)
+            navLinks.push(<Link key={2} to='/logout' className="navLink" >Log Out</Link>)
             navLinks.push(<Link key={3} to='/create' className="navLink">Create Event</Link>)
             navLinks.push(<Link key={4} to='/myevents' className="navLink">My Events</Link>)
         } else {
