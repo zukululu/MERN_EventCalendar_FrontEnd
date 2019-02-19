@@ -1,0 +1,40 @@
+@import '../color-palette.scss';
+@import url('https://fonts.googleapis.com/css?family=Arvo|Sirin+Stencil');
+
+/* Universal */
+
+header {
+    background-color: $dark-green;
+    color: $white;
+    display: grid;
+    grid-template-columns: 30% 25% 45%;
+    grid-template-rows: 1;
+    max-height: 150px;
+}
+
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Classes */
+
+.logo {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    text-align: right;
+}
+
+.link-box {
+    display: flex;
+    flex-direction: column;
+    grid-column: 3;
+    grid-row: 1;
+    justify-content: space-around;
+    text-align: right;
+}
+
+.navLink {
+    color: $white;
+    text-decoration: none;
+    padding: 0 25px;
+}
