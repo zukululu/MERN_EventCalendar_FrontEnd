@@ -1,0 +1,30 @@
+@import '../color-palette.scss';
+
+.main-form {
+    margin: 0 auto;
+    max-width: 30%;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.button {
+    border: 1px solid $dark-green;
+    color: $dark-green;
+    font-size: 15px;
+    margin: 15px;
+}
+
+.button:hover {
+    background-color: $dark-green;
+    color: $white;
+}
+
+.form {
+    font-size: 15px;
+    margin: 5px;
+    width: 75%;
+}
+
+h2 {
+    color: $dark-green;
+}

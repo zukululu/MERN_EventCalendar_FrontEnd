@@ -17,7 +17,7 @@ class Header extends Component {
         return (
             <div>
                 <header>
-                    <div className="logo"><h1>Lettuce Meet</h1></div>
+                    <div className="logo"><Link key='logo' to='/' className="header-link"><h1>Lettuce Meet</h1></Link></div>
                     <div className="link-box">
                         <div className="link-list">
                             {navLinks}

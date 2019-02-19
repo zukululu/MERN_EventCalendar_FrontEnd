@@ -18,6 +18,11 @@ h1 {
 
 /* Classes */
 
+.header-link {
+    color: $white;
+    text-decoration: none;
+}
+
 .logo {
     grid-column: 1 / span 2;
     grid-row: 1;
