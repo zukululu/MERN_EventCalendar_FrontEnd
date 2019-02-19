@@ -1,0 +1,68 @@
+@import '../color-palette.scss';
+
+.main-event {
+    margin: 0 auto;
+    max-width: 75%;
+    padding: 15px 0;
+}
+
+.react-calendar {
+    margin: 0 auto;
+    width: 80%;
+
+    .react-calendar__month-view__weekdays {
+        color: $dark-green;
+        font-size: 20px;
+        padding: 5px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .react-calendar__month-view__days__day {
+        background-color: $white;
+        border: 0;
+    }
+
+    .react-calendar__month-view__days__day:hover {
+        background-color: $dark-green;
+        color: $white;
+        border: 0;
+    }
+
+    .react-calendar__month-view__days__day--neighboringMonth {
+        background-color: $white;
+        color: $slate-gray;
+    }
+
+    .react-calendar__navigation__next-button {
+        background-color: $dark-green;
+        border: 0px;
+    }
+
+    .react-calendar__navigation__next2-button {
+        background-color: $dark-green;
+        border: 0px;
+    }
+
+    .react-calendar__navigation__prev-button {
+        background-color: $dark-green;
+        border: 0px;
+    }
+
+    .react-calendar__navigation__prev2-button {
+        background-color: $dark-green;
+        border: 0px;
+    }
+
+    .react-calendar__navigation__label {
+        background-color: $dark-green;
+        border: 0px;
+        color: $white;
+        font-size: 25px;
+    }
+
+    .react-calendar__tile {
+        height: 50px;
+        width: 50px;
+    }
+}
