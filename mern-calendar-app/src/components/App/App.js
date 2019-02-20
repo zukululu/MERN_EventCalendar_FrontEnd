@@ -30,6 +30,7 @@ class App extends Component {
     this.handleLogIn = this.handleLogIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
   }
+
   componentDidMount () {
     if (localStorage.token) {
       this.setState({
@@ -106,7 +107,7 @@ class App extends Component {
                 <LogOut isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
               )
             }} />
-            <Route path='/myevents'
+            <Route path='/users/:userId'
               render={(props) => {
                 return (
                   <MyEvents isLoggedIn={this.state.isLoggedIn} />

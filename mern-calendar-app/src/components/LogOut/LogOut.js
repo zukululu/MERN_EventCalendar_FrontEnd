@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import './Logout.scss'
 
 class LogOut extends Component {
     render() {
         return (
-            <div>
+            <div className="button-wrapper">
                 <form>
-                    <input value='Log Out' type='submit' onClick={this.props.handleLogOut} />
+                    <input value='Log Out' type='submit' onClick={this.props.handleLogOut} className="button-logout" />
                 </form>
             </div>
         );
