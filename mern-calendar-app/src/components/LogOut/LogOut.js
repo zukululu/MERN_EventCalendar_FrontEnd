@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import './Logout.scss'
 
 class LogOut extends Component {
+
     render() {
         return (
             <div className="button-wrapper">
