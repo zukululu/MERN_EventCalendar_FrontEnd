@@ -11,7 +11,7 @@ class CreateEvent extends Component {
         this.state = {
             title: '',
             date: new Date(),
-            author: '',
+            author: localStorage.lettuceId,
             public: false
         };
 
@@ -34,8 +34,6 @@ class CreateEvent extends Component {
         () => {
             console.log(this.state)
         })
-        // console.log(evt.target.name)
-        // console.log(evt.target.value)
     }
 
     handleSubmit(e) {
