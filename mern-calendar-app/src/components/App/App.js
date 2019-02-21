@@ -9,6 +9,7 @@ import './App.scss';
 import CreateEvent from '../CreateEvent/CreateEvent'
 import Header from '../Header/Header'
 import LogInForm from '../LogIn/LogIn'
+import LogOut from '../LogOut/LogOut'
 import MainEvent from '../MainEvent/MainEvent'
 import SignUpForm from '../SignUp/SignUp'
 
@@ -105,6 +106,11 @@ class App extends Component {
             <Route path='/create' render={() => {
               return (
                 <CreateEvent isLoggedIn={this.state.isLoggedIn} />
+              )
+            }} />
+            <Route path='/logout' render={(props) => {
+              return (
+                <LogOut isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
               )
             }} />
             <Route path="/" render={() => {
