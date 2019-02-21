@@ -18,7 +18,7 @@ class MainEvent extends Component {
     }
 
     componentDidMount(){
-        axios.get("http://localhost:3001/events")
+        axios.get("http://localhost:3001/")
             .then(console.log("got"))
             .then((res) => {
                 console.log(res)

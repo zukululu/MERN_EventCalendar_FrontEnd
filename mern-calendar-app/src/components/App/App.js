@@ -9,9 +9,7 @@ import './App.scss';
 import CreateEvent from '../CreateEvent/CreateEvent'
 import Header from '../Header/Header'
 import LogInForm from '../LogIn/LogIn'
-import LogOut from '../LogOut/LogOut'
 import MainEvent from '../MainEvent/MainEvent'
-import MyEvents from '../MyEvents/MyEvents'
 import SignUpForm from '../SignUp/SignUp'
 
 class App extends Component {
@@ -90,30 +88,6 @@ class App extends Component {
         <Header isLoggedIn={this.state.isLoggedIn} />
         <div className="body">
           <Switch>
-            <Route path='/create' render={() => {
-              return (
-                <CreateEvent isLoggedIn={this.state.isLoggedIn} />
-              )
-            }} />
-            <Route path='/login'
-              render={(props) => {
-                return (
-                  <LogInForm isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} />
-                )
-              }}
-            />
-            <Route path='/logout' render={(props) => {
-              return (
-                <LogOut isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
-              )
-            }} />
-            <Route path='/users/:userId'
-              render={(props) => {
-                return (
-                  <MyEvents isLoggedIn={this.state.isLoggedIn} />
-                )
-              }}
-            />
             <Route path='/signup'
               render={(props) => {
                 return (
@@ -121,6 +95,18 @@ class App extends Component {
                 )
               }}
             />
+            <Route path='/login'
+              render={(props) => {
+                return (
+                  <LogInForm isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} handleLogIn={this.handleLogIn} />
+                )
+              }}
+            />
+            <Route path='/create' render={() => {
+              return (
+                <CreateEvent isLoggedIn={this.state.isLoggedIn} />
+              )
+            }} />
             <Route path="/" render={() => {
                 return (
                   <MainEvent isLoggedIn={this.state.isLoggedIn} />
