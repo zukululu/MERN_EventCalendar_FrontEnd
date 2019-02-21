@@ -91,8 +91,6 @@ class App extends Component {
       password: this.state.password
     })
     .then(response => {
-      localStorage.lettuceId = response.data.id
-      console.log(localStorage.lettuceId)
       localStorage.token = response.data.token
       this.setState({isLoggedIn: true})
     })
@@ -122,7 +120,7 @@ class App extends Component {
             />
             <Route path='/create' render={(props) => {
               return (
-                <CreateEvent isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} />
+                <CreateEvent isLoggedIn={this.state.isLoggedIn} {... props} />
               )
             }} />
             <Route path='/logout' render={(props) => {

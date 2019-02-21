@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import '../LogIn/Login.scss'
 
 class SignUp extends Component {
+
+    handleRedirect() {
+        return <Redirect to='/' />
+    }
+
     render() {
         return (
             <div className="main-form">
@@ -15,6 +21,7 @@ class SignUp extends Component {
                 </div>
                 <input value='Submit' type='submit' className="button" onClick={this.props.handleSignUp} />
                 </form>
+                {this.props.isLoggedIn ? this.handleRedirect() : null}
             </div>
         );
     }
