@@ -21,7 +21,7 @@ class MainEvent extends Component {
         axios.get("http://localhost:3001/events")
             .then(console.log("got"))
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 this.setState({
                     events: res.data
                 })
@@ -37,7 +37,7 @@ class MainEvent extends Component {
         const events = this.state.events.map((event, index) => {
             return (
                 <div key={index} className="event-card">
-                    <Link to={`/events/${event._id}`} className="event-link" {...this.events}><h1><img src={lettuce} alt="" className="lettuce" />{event.title}</h1></Link>
+                    <Link to={`/events/${event._id}`} className="event-link"><h1><img src={lettuce} alt="" className="lettuce" />{event.title}</h1></Link>
                     <div className="date-location-wrapper">
                         <div>{event.date}</div>
                         <div>{event.location}</div>
@@ -47,6 +47,7 @@ class MainEvent extends Component {
                 </div>
             )
         })
+        // console.log(this.state.events)
         return (
             <div className="main-event">
                 <div className="calendar-wrapper">

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
+
 class OneEvent extends Component {
   render() {
-    console.log(this.props)
-    // let showEvent = this.props.events.filter( event => 
-    //   event.id === this.props.match.params)[0]
+    console.log(this.props.events)
+
     return (
       <div>
         {/* {showEvent} */}

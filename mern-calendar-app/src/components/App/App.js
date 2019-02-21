@@ -41,6 +41,19 @@ class App extends Component {
         isLoggedIn: false
       })
     }
+
+    axios.get("http://localhost:3001/events")
+    .then(console.log("got"))
+    .then((res) => {
+        // console.log(res)
+        this.setState({
+            events: res.data
+        })
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
   }
 
   handleLogOut () {
@@ -87,6 +100,7 @@ class App extends Component {
   }
 
   render() {
+    // console.log(this.state.events)
     return (
       <div className="App">
         <Header isLoggedIn={this.state.isLoggedIn} />
@@ -118,7 +132,7 @@ class App extends Component {
             }} />
             <Route path='/events/:id' render={ (props) => {
               return (
-                <OneEvent isLoggedIn={this.state.isLoggedIn}/>
+                <OneEvent isLoggedIn={this.state.isLoggedIn} events={this.state.events} />
               )
             }}/>
             <Route path="/" render={() => {
