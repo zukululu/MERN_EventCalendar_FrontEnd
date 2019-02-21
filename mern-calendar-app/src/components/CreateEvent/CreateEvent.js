@@ -44,7 +44,6 @@ class CreateEvent extends Component {
             .then(() => {
                 console.log(this.state)
                 console.log('hello')
-                // this.props.history.push('/')
             })
     }
 
