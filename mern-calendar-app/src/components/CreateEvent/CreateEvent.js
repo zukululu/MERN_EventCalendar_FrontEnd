@@ -42,7 +42,9 @@ class CreateEvent extends Component {
         e.preventDefault()
         axios.post('http://localhost:3001/events/new', this.state)
             .then(res => {
-                console.log(res.data)
+                // console.log(this.state)
+                console.log('hello')
+                console.log(res)
             })
     }
 
@@ -74,7 +76,7 @@ class CreateEvent extends Component {
                     <div className="form-cover"><input type="text" name="cover" value={this.state.value} className="form" onChange={this.handleChange} /></div>
                     <div className="label-public"><label htmlFor='public'>Public Event</label></div>
                     <div className="form-public"><input type="checkbox" name="public" value={this.state.value} onChange={this.handleChange} /></div>
-                    <div className="button-submit"><input value='Submit' type='submit' className="button" /></div>
+                    <div className="button-submit"><input value='Submit' type='submit' className="button" onClick={this.handleSubmit}/></div>
                 </form>
             </div>
         );
