@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
+import { Redirect } from 'react-router-dom'
 import './CreateEvent.scss';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios'
@@ -9,8 +10,10 @@ class CreateEvent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            redirect: false,
             title: '',
             date: new Date(),
+            loaction: '',
             author: localStorage.lettuceId,
             public: false
         };
@@ -29,8 +32,7 @@ class CreateEvent extends Component {
 
     handleChange(evt) {
         const variable = evt.target.name
-        console.log(variable)
-        this.setState({[variable]: evt.target.value }, 
+        this.setState({[variable]: evt.target.value}, 
         () => {
             console.log(this.state)
         })
@@ -39,11 +41,15 @@ class CreateEvent extends Component {
     handleSubmit(e) {
         e.preventDefault()
         axios.post('http://localhost:3001/events/new', this.state)
-            .then(res => {
-                // console.log(this.state)
+            .then(() => {
+                console.log(this.state)
                 console.log('hello')
-                console.log(res)
+                // this.props.history.push('/')
             })
+    }
+
+    handleRedirect() {
+        return <Redirect to='/' />
     }
 
     render() {

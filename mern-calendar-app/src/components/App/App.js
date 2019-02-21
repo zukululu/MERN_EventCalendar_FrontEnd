@@ -103,9 +103,9 @@ class App extends Component {
                 )
               }}
             />
-            <Route path='/create' render={() => {
+            <Route path='/create' render={(props) => {
               return (
-                <CreateEvent isLoggedIn={this.state.isLoggedIn} />
+                <CreateEvent isLoggedIn={this.state.isLoggedIn} {... props} />
               )
             }} />
             <Route path='/logout' render={(props) => {
