@@ -43,7 +43,6 @@ class App extends Component {
         isLoggedIn: false
       })
     }
-
     this.getLatestEvents()
   }
 
@@ -106,7 +105,6 @@ class App extends Component {
   }
 
   render() {
-    // console.log(this.state.events)
     return (
       <div className="App">
         <Header isLoggedIn={this.state.isLoggedIn} />

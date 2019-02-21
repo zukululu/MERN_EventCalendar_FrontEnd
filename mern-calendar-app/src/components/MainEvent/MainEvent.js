@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Calendar from 'react-calendar/dist/entry.nostyle';
-import axios from 'axios';
 import './MainEvent.scss';
 
 // images
@@ -17,22 +16,6 @@ class MainEvent extends Component {
         }
     }
 
-    // componentDidMount(){
-    //     axios.get("http://localhost:3001/events")
-    //         .then(console.log("got"))
-    //         .then((res) => {
-    //             // console.log(res)
-    //             this.setState({
-    //                 events: res.data
-    //             })
-    //         })
-    //         .catch((err) => {
-    //             console.log(err)
-    //         })
-    // }
-
-    
-
     render() {
         const events = this.props.events.map((event, index) => {
             return (
@@ -47,7 +30,6 @@ class MainEvent extends Component {
                 </div>
             )
         })
-        // console.log(this.state.events)
         return (
             <div className="main-event">
                 <div className="calendar-wrapper">
