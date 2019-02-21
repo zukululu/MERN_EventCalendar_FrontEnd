@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import '../LogIn/Login.scss'
 
 class SignUp extends Component {
-
     render() {
         return (
             <div className="main-form">
