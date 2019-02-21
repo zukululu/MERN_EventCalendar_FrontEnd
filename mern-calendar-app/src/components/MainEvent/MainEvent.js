@@ -35,7 +35,7 @@ class MainEvent extends Component {
         const events = this.state.events.map((event, index) => {
             return (
                 <div key={index} className="event-card">
-                    <Link to="/" className="event-link"><h1><img src={lettuce} className="lettuce" />{event.title}</h1></Link>
+                    <Link to="/" className="event-link"><h1><img src={lettuce} alt="" className="lettuce" />{event.title}</h1></Link>
                     <div className="date-location-wrapper">
                         <div>{event.date}</div>
                         <div>{event.location}</div>
