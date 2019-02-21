@@ -12,6 +12,7 @@ import LogInForm from '../LogIn/LogIn'
 import LogOut from '../LogOut/LogOut'
 import MainEvent from '../MainEvent/MainEvent'
 import SignUpForm from '../SignUp/SignUp'
+import OneEvent from '../OneEvent/OneEvent'
 
 class App extends Component {
 
@@ -115,6 +116,11 @@ class App extends Component {
                 <LogOut isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
               )
             }} />
+            <Route path='/events/:id' render={ (props) => {
+              return (
+                <OneEvent isLoggedIn={this.state.isLoggedIn}/>
+              )
+            }}/>
             <Route path="/" render={() => {
                 return (
                   <MainEvent isLoggedIn={this.state.isLoggedIn} />
