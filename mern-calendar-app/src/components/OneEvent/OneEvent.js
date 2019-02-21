@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
 
 class OneEvent extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      events : []
-    }
-  }
-
-  componentDidMount() {
-    this.setState({
-      events: this.props.events
-    })
-  }
-
+  
   render() {
-    console.log(this.state.events)
     console.log(this.props.events)
+    let showEvent = this.props.events.filter( event =>
+    event._id === this.props.match.params.id)
+    console.log(showEvent)
     return (
       <div>
-        {/* {showEvent} */}
+        {showEvent[0].title}
         <h1>Hello</h1>
       </div>
     );

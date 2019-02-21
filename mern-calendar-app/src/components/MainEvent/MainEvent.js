@@ -17,24 +17,24 @@ class MainEvent extends Component {
         }
     }
 
-    componentDidMount(){
-        axios.get("http://localhost:3001/events")
-            .then(console.log("got"))
-            .then((res) => {
-                // console.log(res)
-                this.setState({
-                    events: res.data
-                })
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
+    // componentDidMount(){
+    //     axios.get("http://localhost:3001/events")
+    //         .then(console.log("got"))
+    //         .then((res) => {
+    //             // console.log(res)
+    //             this.setState({
+    //                 events: res.data
+    //             })
+    //         })
+    //         .catch((err) => {
+    //             console.log(err)
+    //         })
+    // }
 
     
 
     render() {
-        const events = this.state.events.map((event, index) => {
+        const events = this.props.events.map((event, index) => {
             return (
                 <div key={index} className="event-card">
                     <Link to={`/events/${event._id}`} className="event-link"><h1><img src={lettuce} alt="" className="lettuce" />{event.title}</h1></Link>
