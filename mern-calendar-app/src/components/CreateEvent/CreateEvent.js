@@ -11,7 +11,7 @@ class CreateEvent extends Component {
         this.state = {
             title: '',
             date: new Date(),
-            author: localStorage.lettuceId,
+            author: '',
             public: false
         };
 

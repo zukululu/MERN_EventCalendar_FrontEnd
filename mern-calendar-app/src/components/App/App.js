@@ -9,7 +9,6 @@ import './App.scss';
 import CreateEvent from '../CreateEvent/CreateEvent'
 import Header from '../Header/Header'
 import LogInForm from '../LogIn/LogIn'
-import LogOut from '../LogOut/LogOut'
 import MainEvent from '../MainEvent/MainEvent'
 import SignUpForm from '../SignUp/SignUp'
 
@@ -76,8 +75,6 @@ class App extends Component {
       password: this.state.password
     })
     .then(response => {
-      localStorage.lettuceId = response.data.id
-      console.log(localStorage.lettuceId)
       localStorage.token = response.data.token
       this.setState({isLoggedIn: true})
     })
@@ -104,14 +101,9 @@ class App extends Component {
                 )
               }}
             />
-            <Route path='/create' render={(props) => {
+            <Route path='/create' render={() => {
               return (
-                <CreateEvent isLoggedIn={this.state.isLoggedIn} handleInput={this.handleInput} />
-              )
-            }} />
-            <Route path='/logout' render={(props) => {
-              return (
-                <LogOut isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
+                <CreateEvent isLoggedIn={this.state.isLoggedIn} />
               )
             }} />
             <Route path="/" render={() => {
