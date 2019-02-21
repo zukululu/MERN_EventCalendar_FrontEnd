@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 
-
 class OneEvent extends Component {
-  render() {
-    console.log(this.props.events)
+  constructor(props) {
+    super(props)
 
+    this.state = {
+      events : []
+    }
+  }
+
+  componentDidMount() {
+    this.setState({
+      events: this.props.events
+    })
+  }
+
+  render() {
+    console.log(this.state.events)
+    console.log(this.props.events)
     return (
       <div>
         {/* {showEvent} */}

@@ -132,7 +132,7 @@ class App extends Component {
             }} />
             <Route path='/events/:id' render={ (props) => {
               return (
-                <OneEvent isLoggedIn={this.state.isLoggedIn} events={this.state.events} />
+                <OneEvent isLoggedIn={this.state.isLoggedIn} events={this.state.events} {...props} />
               )
             }}/>
             <Route path="/" render={() => {
