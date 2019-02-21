@@ -24,9 +24,10 @@ h1 {
 }
 
 .logo {
-    grid-column: 1 / span 2;
+    grid-column: 1;
     grid-row: 1;
-    text-align: right;
+    padding: 0 25px;
+    text-align: left;
 }
 
 .link-box {
@@ -41,7 +42,7 @@ h1 {
 .navLink {
     color: $white;
     text-decoration: none;
-    padding: 0 1.5vh;
+    padding: 0 25px;
 }
 
 .navLink:hover {
