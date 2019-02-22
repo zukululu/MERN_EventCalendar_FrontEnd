@@ -12,6 +12,7 @@ import LogInForm from '../LogIn/LogIn'
 import LogOut from '../LogOut/LogOut'
 import MainEvent from '../MainEvent/MainEvent'
 import SignUpForm from '../SignUp/SignUp'
+import OneEvent from '../OneEvent/OneEvent'
 
 class App extends Component {
 
@@ -21,13 +22,15 @@ class App extends Component {
     this.state = {
       email: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
+      events: []
     }
 
     this.handleLogOut = this.handleLogOut.bind(this)
     this.handleInput = this.handleInput.bind(this)
     this.handleLogIn = this.handleLogIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
+    this.getLatestEvents = this.getLatestEvents.bind(this)
   }
 
   componentDidMount () {
@@ -40,6 +43,22 @@ class App extends Component {
         isLoggedIn: false
       })
     }
+    this.getLatestEvents()
+  }
+
+  getLatestEvents() {
+    axios.get("http://localhost:3001/events")
+    .then(console.log("got"))
+    .then((res) => {
+        // console.log(res)
+        this.setState({
+            events: res.data
+        })
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
   }
 
   handleLogOut () {
@@ -65,6 +84,7 @@ class App extends Component {
     })
     .then(response => {
       localStorage.token = response.data.token
+      localStorage.setItem('lettuceId', response.data.id)
       this.setState({ isLoggedIn: true })
     })
     .catch(err => console.log(err))
@@ -78,6 +98,7 @@ class App extends Component {
     })
     .then(response => {
       localStorage.token = response.data.token
+      localStorage.setItem('lettuceId', response.data.id)
       this.setState({isLoggedIn: true})
     })
     .catch(err => console.log(err))
@@ -105,7 +126,7 @@ class App extends Component {
             />
             <Route path='/create' render={(props) => {
               return (
-                <CreateEvent isLoggedIn={this.state.isLoggedIn} {... props} />
+                <CreateEvent getLatestEvents={this.getLatestEvents} isLoggedIn={this.state.isLoggedIn} {... props} />
               )
             }} />
             <Route path='/logout' render={(props) => {
@@ -113,9 +134,14 @@ class App extends Component {
                 <LogOut isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
               )
             }} />
+            <Route path='/events/:id' render={ (props) => {
+              return (
+                <OneEvent isLoggedIn={this.state.isLoggedIn} events={this.state.events} {...props} />
+              )
+            }}/>
             <Route path="/" render={() => {
                 return (
-                  <MainEvent isLoggedIn={this.state.isLoggedIn} />
+                  <MainEvent isLoggedIn={this.state.isLoggedIn} events={this.state.events} />
                 )
               }} />
           </Switch>
@@ -126,3 +152,6 @@ class App extends Component {
 }
 
 export default App;
+
+
+

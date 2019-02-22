@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import './CreateEvent.scss';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios'
@@ -13,10 +13,15 @@ class CreateEvent extends Component {
             redirect: false,
             title: '',
             date: new Date(),
+<<<<<<< HEAD
             loaction: '',
             author: localStorage.lettuceId,
             description: '',
             cover: '',
+=======
+            location: '',
+            author: localStorage.getItem('lettuceId'),
+>>>>>>> jeffDev
             public: false
         };
 
@@ -42,10 +47,14 @@ class CreateEvent extends Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        axios.post('http://localhost:3001/events/new', this.state)
+        axios.post('http://localhost:3001/events/new', this.state )
             .then(() => {
-                console.log(this.state)
-                console.log('hello')
+                // console.log(this.state)
+                // console.log('hello')
+                console.log('done creating')
+                this.props.history.push('/')
+                this.props.getLatestEvents()
+                // does another axios.get
             })
     }
 
@@ -81,7 +90,11 @@ class CreateEvent extends Component {
                     <div className="form-cover"><input type="text" name="cover" value={this.state.value} className="form" onChange={this.handleChange} /></div>
                     <div className="label-public"><label htmlFor='public'>Public Event</label></div>
                     <div className="form-public"><input type="checkbox" name="public" value={this.state.value} onChange={this.handleChange} /></div>
-                    <div className="button-submit"><input value='Submit' type='submit' className="button" onClick={this.handleSubmit}/></div>
+                    <div name="author" value={this.lettuceId}></div>
+                    <div className="button-submit">
+                    <Link to='/'><input value='Submit' type='submit' className="button" onClick={this.handleSubmit}/>
+                    </Link></div>
+                    
                 </form>
             </div>
         );
