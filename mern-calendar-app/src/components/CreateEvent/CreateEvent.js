@@ -13,15 +13,8 @@ class CreateEvent extends Component {
             redirect: false,
             title: '',
             date: new Date(),
-<<<<<<< HEAD
-            loaction: '',
-            author: localStorage.lettuceId,
-            description: '',
-            cover: '',
-=======
             location: '',
             author: localStorage.getItem('lettuceId'),
->>>>>>> jeffDev
             public: false
         };
 
