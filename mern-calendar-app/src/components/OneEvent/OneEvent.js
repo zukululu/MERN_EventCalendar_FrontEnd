@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class OneEvent extends Component {
+<<<<<<< HEAD
 
   componentDidUpdate(prevProps, prevState) {
     console.log('updated', prevProps, this.props)
@@ -23,11 +24,18 @@ class OneEvent extends Component {
         return null
       }
   }
+=======
+>>>>>>> parent of e320d92... create event redirect & Jimmy solution for show event
   
   render() {
+    console.log(this.props.events)
+    let showEvent = this.props.events.filter( event =>
+    event._id === this.props.match.params.id)[0]
+    console.log(showEvent)
     return (
       <div>
-        {this.renderEvent(this.props.events)}
+        <h1>{showEvent.title}</h1>
+        by <h3>{showEvent.email}</h3>
       </div>
     );
   }
