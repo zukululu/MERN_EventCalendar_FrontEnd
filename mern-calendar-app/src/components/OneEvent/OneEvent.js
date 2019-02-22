@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class OneEvent extends Component {
-<<<<<<< HEAD
 
   componentDidUpdate(prevProps, prevState) {
     console.log('updated', prevProps, this.props)
@@ -24,8 +23,6 @@ class OneEvent extends Component {
         return null
       }
   }
-=======
->>>>>>> parent of e320d92... create event redirect & Jimmy solution for show event
   
   render() {
     console.log(this.props.events)
