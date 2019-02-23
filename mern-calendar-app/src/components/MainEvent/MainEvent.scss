@@ -6,12 +6,16 @@
     padding: 15px 0;
 }
 
+.calendar-wrapper {
+    margin: 15px 0 30px 0;
+}
+
 .react-calendar {
     margin: 0 auto;
     width: 80%;
 
     .react-calendar__month-view__weekdays {
-        color: $dark-green;
+        color: $med-green;
         font-size: 20px;
         padding: 5px;
         text-align: center;
@@ -24,8 +28,7 @@
     }
 
     .react-calendar__month-view__days__day:hover {
-        background-color: $dark-green;
-        color: $white;
+        background-color: $light-green;
         border: 0;
     }
 
@@ -64,5 +67,44 @@
     .react-calendar__tile {
         height: 50px;
         width: 50px;
+    }
+}
+
+.event-card {
+    border: 3px solid $dark-green;
+    border-radius: 15px;
+    color: $dark-gray;
+    padding: 10px;
+    margin: 15px;
+
+    .date-location-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 15px 0 0 0;
+    }
+
+    .description-wrapper {
+        margin: 15px;
+    }
+
+    .event-link {
+        color: $dark-gray;
+        text-decoration: none;
+    }
+
+    .event-link:hover {
+        color: $light-green;
+    }
+
+    h1 {
+        border-bottom: 3px solid $med-green;
+        margin: 0;
+    }
+
+    .lettuce {
+        height: 45px;
+        padding: 0 10px 0 0;
+        width: auto;
     }
 }

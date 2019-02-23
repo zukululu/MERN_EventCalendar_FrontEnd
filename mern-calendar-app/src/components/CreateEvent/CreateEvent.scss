@@ -1,0 +1,87 @@
+@import '../MainEvent/MainEvent.scss';
+
+.create-form {
+    color: $dark-gray;
+    margin: 0 auto;
+    max-width: 55%;
+    padding: 15px 0;
+
+    .create-form-header {
+        width: 100%;
+    }
+
+    .form-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+    }
+
+    .button-submit {
+        display: flex;
+        grid-column: 2 / span 2;
+        grid-row: 6;
+        justify-content: center;
+    }
+
+    .date {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+    }
+
+    .form-cover {
+        grid-column: 2;
+        grid-row: 5;
+    }
+
+    .form-description {
+        grid-column: 1 / span 4;
+        grid-row: 4;
+    }
+
+    .form-location {
+        grid-column: 4;
+        grid-row: 2;
+    }
+
+    .form-public {
+        grid-column: 4;
+        grid-row: 5;
+    }
+
+    .form-title {
+        grid-column: 2 / span 3;
+        grid-row: 1;
+    }
+
+    label {
+        font-size: 18px;
+        padding: 0 15px;
+    }
+
+    .label-cover {
+        grid-column: 1;
+        grid-row: 5;
+    }
+
+    .label-description {
+        grid-column: 1 / span 4;
+        grid-row: 3;
+    }
+
+    .label-public {
+        grid-column: 3;
+        grid-row: 5;
+    }
+
+    .label-title {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .location {
+        grid-column: 3 / span 2;
+        grid-row: 2;
+    }
+
+}
+

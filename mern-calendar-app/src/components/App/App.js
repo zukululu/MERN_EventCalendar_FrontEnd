@@ -9,8 +9,10 @@ import './App.scss';
 import CreateEvent from '../CreateEvent/CreateEvent'
 import Header from '../Header/Header'
 import LogInForm from '../LogIn/LogIn'
+import LogOut from '../LogOut/LogOut'
 import MainEvent from '../MainEvent/MainEvent'
 import SignUpForm from '../SignUp/SignUp'
+import OneEvent from '../OneEvent/OneEvent'
 
 class App extends Component {
 
@@ -20,14 +22,17 @@ class App extends Component {
     this.state = {
       email: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
+      events: []
     }
 
     this.handleLogOut = this.handleLogOut.bind(this)
     this.handleInput = this.handleInput.bind(this)
     this.handleLogIn = this.handleLogIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
+    this.getLatestEvents = this.getLatestEvents.bind(this)
   }
+
   componentDidMount () {
     if (localStorage.token) {
       this.setState({
@@ -38,6 +43,22 @@ class App extends Component {
         isLoggedIn: false
       })
     }
+    this.getLatestEvents()
+  }
+
+  getLatestEvents() {
+    axios.get("http://localhost:3001/events")
+    .then(console.log("got"))
+    .then((res) => {
+        // console.log(res)
+        this.setState({
+            events: res.data
+        })
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
   }
 
   handleLogOut () {
@@ -57,12 +78,13 @@ class App extends Component {
 
   handleSignUp(e) {
     e.preventDefault()
-    axios.post('http://localhost:1776/users/signup', {
+    axios.post('http://localhost:3001/users/signup', {
       email: this.state.email,
       password: this.state.password
     })
     .then(response => {
       localStorage.token = response.data.token
+      localStorage.setItem('lettuceId', response.data.id)
       this.setState({ isLoggedIn: true })
     })
     .catch(err => console.log(err))
@@ -70,12 +92,13 @@ class App extends Component {
 
   handleLogIn (e) {
     e.preventDefault()
-    axios.post('http://localhost:1776/users/login', {
+    axios.post('http://localhost:3001/users/login', {
       email: this.state.email,
       password: this.state.password
     })
     .then(response => {
       localStorage.token = response.data.token
+      localStorage.setItem('lettuceId', response.data.id)
       this.setState({isLoggedIn: true})
     })
     .catch(err => console.log(err))
@@ -101,14 +124,24 @@ class App extends Component {
                 )
               }}
             />
-            <Route path='/create' render={() => {
+            <Route path='/create' render={(props) => {
               return (
-                <CreateEvent isLoggedIn={this.state.isLoggedIn} />
+                <CreateEvent getLatestEvents={this.getLatestEvents} isLoggedIn={this.state.isLoggedIn} {... props} />
               )
             }} />
+            <Route path='/logout' render={(props) => {
+              return (
+                <LogOut isLoggedIn={this.state.isLoggedIn} handleLogOut={this.handleLogOut} />
+              )
+            }} />
+            <Route path='/events/:id' render={ (props) => {
+              return (
+                <OneEvent isLoggedIn={this.state.isLoggedIn} events={this.state.events} {...props} />
+              )
+            }}/>
             <Route path="/" render={() => {
                 return (
-                  <MainEvent isLoggedIn={this.state.isLoggedIn} />
+                  <MainEvent isLoggedIn={this.state.isLoggedIn} events={this.state.events} />
                 )
               }} />
           </Switch>
@@ -119,3 +152,6 @@ class App extends Component {
 }
 
 export default App;
+
+
+
